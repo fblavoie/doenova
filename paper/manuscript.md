@@ -11,7 +11,7 @@ authors:
   - name: Ryan Gosselin
     affiliation: 1
 affiliations:
- - name: Universite de Sherbrooke, Faculty of Engineering, Department of Chemical \& Biotechnological Engineering, 2500 boul. de l'Universite, Sherbrooke, QC, Canada, J1K 2R1
+ - name: Universite de Sherbrooke, Faculty of Engineering, Department of Chemical & Biotechnological Engineering, 2500 boul. de l'Universite, Sherbrooke, QC, Canada, J1K 2R1
 date: 15 July 2019
 bibliography: references.bib
 ---

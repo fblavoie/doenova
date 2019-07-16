@@ -1,4 +1,3 @@
-
 ---
 title: 'DOENOVA: Simple DOE and ANOVA package for Python 3'
 tags:
@@ -13,12 +12,9 @@ authors:
     affiliation: 1
 affiliations:
  - name: Universite de Sherbrooke, Faculty of Engineering, Department of Chemical \& Biotechnological Engineering, 2500 boul. de l'Universite, Sherbrooke, QC, Canada, J1K 2R1
-   index: 1
 date: 15 July 2019
 bibliography: references.bib
-link-citations: yes
 ---
-
 
 
 
@@ -74,3 +70,6 @@ Once the experiments are completed, the *xlsx* file can be reimported with the D
 DOENOVA is currently limited to 3 DOE types. Based on the DOEANOVA structure, we are working to add more types of design for the package, such as the 3-level factorial design, as well as adding them to the *interactive designer* webpage. 
 
 We are also working on a DOE optimizer which would provide the optimal DOE to the user according to a maximum number of runs and the DOE objective.
+
+
+# References

@@ -1,4 +1,4 @@
-```
+
 ---
 title: 'DOENOVA: Simple DOE and ANOVA package for Python 3'
 tags:
@@ -18,7 +18,7 @@ date: 15 July 2019
 bibliography: references.bib
 link-citations: yes
 ---
-```
+
 
 
 

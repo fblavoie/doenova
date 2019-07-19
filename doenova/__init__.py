@@ -1042,10 +1042,10 @@ class exppbplan:
         print("")
         print("y =~ ")
         if(len(self.betas)>0):
-            print(self.betas[-1,0])
+            print(self.betas[0,0])
         ss = ""
-        for i in range(len(self.betas)-1):
-            ff = self.req[i,:] == 1
+        for i in range(1,len(self.betas)):
+            ff = self.req[i-1,:] == 1
             ss = ""
             for j in range(len(self.req.T)): 
                 if(ff[j]):
@@ -1486,10 +1486,10 @@ class exp2plan:
         print("")
         print("y =~ ")
         if(len(self.betas)>0):
-            print(self.betas[-1,0])
+            print(self.betas[0,0])
         ss = ""
-        for i in range(len(self.betas)-1):
-            ff = self.req[i,:] == 1
+        for i in range(1,len(self.betas)):
+            ff = self.req[i-1,:] == 1
             ss = ""
             for j in range(len(self.req.T)): 
                 if(ff[j]):

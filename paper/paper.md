@@ -1,4 +1,4 @@
----
+﻿---
 title: 'DOENOVA: Simple DOE and ANOVA package for Python 3'
 tags:
   - DOE
@@ -16,6 +16,11 @@ date: 15 July 2019
 bibliography: references.bib
 ---
 
+
+
+# Summary
+
+DOENOVA is a Python3 package to easily create typical design of experiments (DOE), from which analysis of variance (ANOVA) models can then be calculated. This high-level package requires the users to only write a few lines of codes and its features and performances are comparable to commercial software. A website has also been developed in which an interactive designer interface allows to select the DOE parameters in order to automatically generate the needed Python code.
 
 
 # Motivations

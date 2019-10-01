@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<link rel="icon" href="img/ICON.png" type="image/png">
+	
+    <title>DOENOVA | ANOVA/Model</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" style="text-shadow: 0px 0px 2px #fff;" href="index.html">DOENOVA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+					<li>
+                        <a href="designer.html" style="text-shadow: 0px 0px 2px #fff;">Interactive Designer</a>
+                    </li>
+                    <li>
+                        <a href="exportimport.html" style="text-shadow: 0px 0px 2px #fff;">Export/Import</a>
+                    </li>
+					<li>
+                        <a href="anovamodel.html" style="text-shadow: 0px 0px 2px #fff;">ANOVA/Model</a>
+                    </li>
+					<li>
+                        <a href="demos.html" style="text-shadow: 0px 0px 2px #fff;">Demos</a>
+                    </li>
+					<li>
+                        <a href="listfunctions.html" style="text-shadow: 0px 0px 2px #fff;">List of functions</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/background-3048876_l2.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+						<h2 style="text-shadow: 0px 0px 5px #333;"><img src="img/LOGO_white.png" style="width:20%;height:20%;"></h2> 
+                        <h2 style="text-shadow: 0px 0px 5px #333;">ANOVA/Model</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				
+				<h4>ANOVA</h4>
+				
+				<p>Once the experiments are completed, the results can be added to the <tt>doe</tt> variable. The number of provided results must match with the number of runs. The results must be provided position-wise to the plan. Then, the first provided result is related to the first row presented with <tt>show_plan()</tt>, and so on. In the following lines, 16 results are provided, as the generated DOE requires 16 runs:</p>
+				
+				<p><tt>from doenova import doe_ff<br>
+						doe = doe_2f()<br>
+						plan = doe.make_plan(3,0,2,0,1)
+					<br>doe.insert_results([3.3,3.6,5.6,5.3,7.8,7.0,5.6,5.2,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3,2.4,5.6,5.1,3.2,2.9,4.8,4.4])</tt></p>
+				
+				<p>If the DOE was created by importing a <tt>xlsx</tt> file containing the results, the previous line must be ignored.</p>
+				
+				<p>Once the results are provided, the ANOVA table can be calculated:</p>
+				
+				<p><tt>anova_comps = doe.anova()</tt></p>
+				
+				<p>By doing the previous line, the ANOVA table is automatically presented in the console. The ANOVA table components are also being found in the <tt>anova_comps</tt> dictionary variable.</p>
+
+				<p>By default, all factors and possible combinations of factors are considered in the ANOVA table. It is possible to only select some factors or combinations. For this, a Numpy Array must be created prior calling the <tt>anova</tt> function. The number of columns must match with the number of factors in the DOE. Each row of this Numpy Array corresponds to one selection of a single factor or a combination of factors. For example,</p>
+				
+				<tt>import numpy as np<br>sel = np.array([[1,0,0,0],
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,0,1,0]])
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,1,0,1]])</tt>
+				
+				<p>The <tt>[1,0,0,0]</tt> row first says that the first factor must be included in the ANOVA table. The <tt>[0,0,1,0]</tt> second row says that the third factor must be included in the ANOVA table. The <tt>[0,1,0,1]</tt> third row says that the interaction between the second and the fourth factors must be considered.</p>
+				
+				<p>The <tt>sel</tt> variable must be input as an argument when calling the <tt>anova</tt> function:</p>
+				
+				<p><tt>anova_comps = doe.anova(sel)</tt></p>
+				
+				<p>The updated ANOVA table does not include the second and fourth factors (without interactions) as it was not specified in the <tt>sel</tt> variable.</p>
+				
+				<p>The second step of the <a href="designer.html">interactive designer</a> can also be used to create the <tt>sel</tt> variable.</p>
+				
+				<h4 id="modelt">Model</h4>
+				
+				<p>For 2-level factorial and PB deisgns, a regression model is automatically calculated when calling the <tt>anova</tt> function. Only the selected variables and interactions of variables will be considered in the model. If no <tt>sel</tt> variable was provided, the model will only consider 1-order interactions.</p>
+				
+				<p>To perform a prediction from the model, use the following command:</p>
+				
+				<p><tt>doe.predict_from_model([.5,.6,.2,-.5])</tt></p>
+				
+				<p>In the example above, the DOE contains 4 factors. The number of numbers to input in the <tt>predict_from_model</tt> function depends on the number of factors.</p>
+				
+			</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Université de Sherbrooke</p>
+					<p class="copyright text-muted">&copy; Francis B. Lavoie, Ryan Gosselin</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141025460-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-141025460-1');
+    </script>
+</body>
+
+</html>

@@ -762,10 +762,6 @@ class expffplan:
                 except:
                     table_anova = []
                     print("Impossible to perform the ANOVA")
-                if(isinstance(req, np.ndarray)):
-                    _ = self.make_regression(req)
-                else:
-                    _ = self.make_regression()
                 return table_anova
             else:
                 print("No available results, cannot perform ANOVA")

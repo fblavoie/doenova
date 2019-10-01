@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<link rel="icon" href="img/ICON.png" type="image/png">
+
+	
+    <title>DOENOVA | Interactive designer</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	
+</head>
+
+<body>
+	 <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" style="text-shadow: 0px 0px 2px #fff;" href="index.html">DOENOVA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="designer.html" style="text-shadow: 0px 0px 2px #fff;">Interactive Designer</a>
+                    </li>
+                    <li>
+                        <a href="exportimport.html" style="text-shadow: 0px 0px 2px #fff;">Export/Import</a>
+                    </li>
+					<li>
+                        <a href="anovamodel.html" style="text-shadow: 0px 0px 2px #fff;">ANOVA/Model</a>
+                    </li>
+					<li>
+                        <a href="demos.html" style="text-shadow: 0px 0px 2px #fff;">Demos</a>
+                    </li>
+					<li>
+                        <a href="listfunctions.html" style="text-shadow: 0px 0px 2px #fff;">List of functions</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/background-3048876_l2.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+						<h2 style="text-shadow: 0px 0px 5px #333;"><img src="img/LOGO_white.png" style="width:20%;height:20%;"></h2> 
+                        <h2 style="text-shadow: 0px 0px 5px #333;">Interactive designer</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div style="display:none;" class="nss col-lg-9  col-md-10 col-md-offset-1">
+				<p>Insert the results with the <tt>insert_results</tt> function or use the <a href="exportimport.html" target="_blank">Export/Import tool</a>. Then, use the following form to select the factors and interactions of factors to include in the ANOVA:</p> 
+			</div>
+            
+            <div id="princc" class="col-lg-5  col-md-10 col-md-offset-1 ">
+				
+				
+				
+				
+
+
+<div><h4>DOE type</h4><p><input type="radio" name="type" value="2f" checked="checked" onclick='change_type(0)' > 2-level-factorial and fractional factorial<br>
+<input type="radio" name="type" value="ff" onclick='change_type(1)' > General full-factorial<br>
+<input type="radio" name="type" value="ff" onclick='change_type(2)' > Plackett-Burman</p><h4><select id="nbf_sel" onchange='nbr_change()'><option value='1'  >1</option><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option></select> factor(s)</h4>
+<h4><select id="rep_sel" onchange='calculate_runs()'><option value='1' >1</option><option value='2'  selected >2</option><option value='3' >3</option><option value='4' >4</option><option value='5' >5</option><option value='6' >6</option><option value='7' >7</option><option value='8' >8</option><option value='9' >9</option><option value='10' >10</option><option value='11' >11</option><option value='12' >12</option><option value='13' >13</option><option value='14' >14</option><option value='15' >15</option><option value='16' >16</option><option value='17' >17</option><option value='18' >18</option><option value='19' >19</option><option value='20' >20</option></select> replicate(s) of each experimental condition</h4>
+</div>
+
+
+<div id='levels_2_gen'>	<span id="gens">
+<span id="ges"><h4><span id="gen_selector"><select id="gen_select" onchange='calculate_runs()'><option value='0'>0</option></select></span> generator(s) <span style="font-size:75%">for fractional factorial</span></h4>		</span></span>
+<span id="nbs"><h4><span id="block_selector"><select id="block_nb" onchange='calculate_runs()'><option value='1'>1</option><option value='2'>2</option><option value='4'>4</option></select></span> block(s)</h4></span>
+<span id="cts"><h4><select id="center_points" onchange='calculate_runs()'><option value='0' >0</option><option value='1' >1</option><option value='2' >2</option><option value='3' >3</option><option value='4' >4</option><option value='5' >5</option><option value='6' >6</option><option value='7' >7</option><option value='8' >8</option><option value='9' >9</option><option value='10' >10</option><option value='11' >11</option><option value='12' >12</option><option value='13' >13</option><option value='14' >14</option><option value='15' >15</option><option value='16' >16</option><option value='17' >17</option><option value='18' >18</option><option value='19' >19</option><option value='20' >20</option></select> replicate(s) of the center point <span style="font-size:75%">for each block</style></h4>	</span>
+<div id='levels_selector' style="display:none;"><h4>Levels</h4><table><tr id='sel_level_1'><td>Factor 1:&nbsp;</td><td><select id='sel_l_1' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_2'><td>Factor 2:&nbsp;</td><td><select id='sel_l_2' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_3'><td>Factor 3:&nbsp;</td><td><select id='sel_l_3' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_4'><td>Factor 4:&nbsp;</td><td><select id='sel_l_4' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_5'><td>Factor 5:&nbsp;</td><td><select id='sel_l_5' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_6'><td>Factor 6:&nbsp;</td><td><select id='sel_l_6' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_7'><td>Factor 7:&nbsp;</td><td><select id='sel_l_7' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_8'><td>Factor 8:&nbsp;</td><td><select id='sel_l_8' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_9'><td>Factor 9:&nbsp;</td><td><select id='sel_l_9' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_10'><td>Factor 10:&nbsp;</td><td><select id='sel_l_10' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_11'><td>Factor 11:&nbsp;</td><td><select id='sel_l_11' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_12'><td>Factor 12:&nbsp;</td><td><select id='sel_l_12' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_13'><td>Factor 13:&nbsp;</td><td><select id='sel_l_13' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_14'><td>Factor 14:&nbsp;</td><td><select id='sel_l_14' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_15'><td>Factor 15:&nbsp;</td><td><select id='sel_l_15' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_16'><td>Factor 16:&nbsp;</td><td><select id='sel_l_16' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_17'><td>Factor 17:&nbsp;</td><td><select id='sel_l_17' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_18'><td>Factor 18:&nbsp;</td><td><select id='sel_l_18' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_19'><td>Factor 19:&nbsp;</td><td><select id='sel_l_19' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr><tr id='sel_level_20'><td>Factor 20:&nbsp;</td><td><select id='sel_l_20' onchange='calculate_runs()'><option value='2'   selected >2</option><option value='3'  >3</option><option value='4'  >4</option><option value='5'  >5</option><option value='6'  >6</option><option value='7'  >7</option><option value='8'  >8</option><option value='9'  >9</option><option value='10'  >10</option><option value='11'  >11</option><option value='12'  >12</option><option value='13'  >13</option><option value='14'  >14</option><option value='15'  >15</option><option value='16'  >16</option><option value='17'  >17</option><option value='18'  >18</option><option value='19'  >19</option><option value='20'  >20</option></select></td></tr></table></div>
+
+<span id="level_values"><h4><select id="levelvalue" onchange="change_level_val();"><option value="0">Default</option><option value="1">Custom</option></select> level values</h4>
+<span id="level_value_select" style="display:none;" >
+<table>
+<tr><td></td><td>Min</td><td>Max</td></tr>
+<tr id="factor_value_1_row"><td>Factor 1:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_1" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_1" value="1"></td></tr>
+<tr id="factor_value_2_row"><td>Factor 2:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_2" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_2" value="1"></td></tr>
+<tr id="factor_value_3_row" style="display:none;"><td>Factor 3:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_3" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_3" value="1"></td></tr>
+<tr id="factor_value_4_row" style="display:none;"><td>Factor 4:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_4" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_4" value="1"></td></tr>
+<tr id="factor_value_5_row" style="display:none;"><td>Factor 5:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_5" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_5" value="1"></td></tr>
+<tr id="factor_value_6_row" style="display:none;"><td>Factor 6:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_6" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_6" value="1"></td></tr>
+<tr id="factor_value_7_row" style="display:none;"><td>Factor 7:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_7" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_7" value="1"></td></tr>
+<tr id="factor_value_8_row" style="display:none;"><td>Factor 8:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_8" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_8" value="1"></td></tr>
+<tr id="factor_value_9_row" style="display:none;"><td>Factor 9:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_9" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_9" value="1"></td></tr>
+<tr id="factor_value_10_row" style="display:none;"><td>Factor 10:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_10" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_10" value="1"></td></tr>
+<tr id="factor_value_11_row" style="display:none;"><td>Factor 11:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_11" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_11" value="1"></td></tr>
+<tr id="factor_value_12_row" style="display:none;"><td>Factor 12:&nbsp;</td><td><input onchange='calculate_runs()' id="lev_min_12" size="5" value="-1"></td><td><input onchange='calculate_runs()' size="5"  id="lev_max_12" value="1"></td></tr>
+</table>
+</span>
+</span>
+
+</div>
+
+
+
+<script>
+
+
+var nb_poss_gen = [0,0,1,1,2,3,4,4,5,6,7,8];
+var type_doe = 0;
+
+
+var mess_int = [ [-2],[1],[2,-2],[2,1,-2],[3,2,1,-2],[3,2,2,1],[4,2,1,1,-2],[4,3,2,1,1,-2],[5,3,3,2,1,1,-2],[5,5,5,2,1,1,1,-2] ];
+	
+
+	
+function change_level_val(){
+	val = $("#levelvalue").val();
+	if(val == 0){
+		$("#level_value_select").hide();
+	}
+	else{
+		$("#level_value_select").show();
+	}
+	
+	calculate_runs();
+}
+	
+function generate_selector(nb){	
+	stringhtml = "<select id='gen_select' onchange='calculate_runs()'>";	
+	for(i = 0; i <= nb_poss_gen[nb-1]; i++) { 		
+		stringhtml += "<option value='"+i+"'>"+i
+		if(i == 1){
+			stringhtml += " --half of the runs--";
+		}
+		else if(i == 2){
+			stringhtml += " --quarter of the runs--";
+		}
+		else if(i == 3){
+			stringhtml += " --1/8 of the runs--";
+		}
+		else if(i > 3){
+			stringhtml += " --1/"+Math.pow(2,i)+" of the runs--";
+		}
+		
+		stringhtml +="</option>";	
+	}		
+	stringhtml += "</select>";	$("#gen_selector").html(stringhtml);
+	
+	// Get the number of runs
+	nb_runs = calculate_runs();
+	max_group = nb_runs/2
+	
+	
+	nb_block = 1
+	stringhtml = "<select id='block_nb' onchange='calculate_runs()'>";	
+	while(nb_block <= max_group){
+		stringhtml += "<option value='"+nb_block+"'>"+nb_block+"</option>";
+		nb_block = nb_block *2 ;
+	}
+	stringhtml += "</select>";	$("#block_selector").html(stringhtml);
+}
+
+
+
+function code_custom_level(){
+	
+	if(parseInt($("#levelvalue").val()) > 0){ 
+		
+		nbf = parseInt($("#nbf_sel").val());
+		
+		
+		if(nbf == 1){
+			
+			minval = $("#lev_min_1").val();
+			minval = parseFloat(minval.replace(",", "."));
+			maxval = $("#lev_max_1").val();
+			maxval = parseFloat(maxval.replace(",", "."));
+			
+			if(maxval < minval){
+				temp = maxval;
+				maxval = minval;
+				minval = temp;
+			}
+			
+			return "<br><tt>doe.quantify_levels([["+minval+","+maxval+"]])</tt>";
+			
+		}
+		else{
+		
+			text = "<br><tt>doe.quantify_levels([["
+			for (i = 0; i < nbf; i++){
+				
+				if(i>0){
+					text += "<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[";
+				}
+				
+				console.log("#lev_min_"+(i+1));
+				minval = $("#lev_min_"+(i+1)).val();
+				minval = parseFloat(minval.replace(",", "."));
+				maxval = $("#lev_max_"+(i+1)).val();
+				maxval = parseFloat(maxval.replace(",", "."));
+				
+				if(maxval < minval){
+					temp = maxval;
+					maxval = minval;
+					minval = temp;
+				}
+				
+				text += minval + "," + maxval + "]";
+				
+				if(i == (nbf-1)){
+					text += "])</tt><br>"
+				}
+				else{
+					text += ",</tt><br>";
+				}
+				
+			}
+			
+			return  text
+			
+		}
+	}
+	else{
+		return ""
+	}
+	
+	
+}
+
+
+
+
+var min_tests_pb = [4,4,4,8,8,8,8,12,12,12,12,16,16,16,16,20,20,20,20,24,24,24,24];
+
+
+
+var max_interaction = 0;
+
+
+function calculate_runs(){	
+
+
+
+	if(type_doe == 0){ 		
+		var nb_gen = parseInt($("#gen_select").val());		
+		if(nb_gen==0){			
+			var divider = 1;		}		
+		else{			
+			var divider = Math.pow(2,nb_gen);	
+		} 		
+		nb_runs = parseInt($("#rep_sel").val())*Math.pow(2,parseInt($("#nbf_sel").val()))/divider + parseInt($("#block_nb").val())*parseInt($("#center_points").val()); 		
+		
+		if( parseInt($("#rep_sel").val())>1 ){			
+		    max_interaction = parseInt($("#nbf_sel").val()) - nb_gen;		
+		    
+		}		
+		else{		
+		    if( (parseInt(Math.pow(2,parseInt($("#nbf_sel").val()))/divider) == min_tests_pb[parseInt($("#nbf_sel").val())-1]) && (nb_gen>0) ){ // similar to PB 
+		        max_interaction = 1
+		    }
+		    else{
+		        max_interaction = 0;		
+		    }
+		}
+		
+		at = "";
+		if(nb_gen>0){
+			at = "<br><tt>doe.show_generators()</tt>";
+		}
+		at = at + code_custom_level();
+		$("#code_holder").html("<p style='font-size:60%;'><tt>from doenova import doe_2f</tt><br><tt>doe = doe_2f()</tt><br><tt>plan = doe.make_plan("+parseInt($("#nbf_sel").val())+","+nb_gen+","+parseInt($("#rep_sel").val())+","+parseInt($("#center_points").val())+","+parseInt($("#block_nb").val())+")</tt>"+at+"</p>");
+			
+	}	
+
+
+	
+	else if(type_doe == 1){		 		 
+	
+		var nb_runs = 1;	
+
+		bracket_text= "[";
+		for(i=1; i <= parseInt($("#nbf_sel").val()) ; i++){		  		  
+		nb_runs = nb_runs * parseInt($("#sel_l_"+i).val());		  		 
+			if( i>1 ){
+				bracket_text += ",";
+			}
+			bracket_text += $("#sel_l_"+i).val();
+		}		 		 
+		bracket_text += "]";
+		nb_runs = nb_runs * parseInt($("#rep_sel").val());		 		 		 
+		if( parseInt($("#rep_sel").val())>1 ){			
+		    max_interaction = parseInt($("#nbf_sel").val());		 }		 
+		else{	
+		    
+		    max_interaction = 0;		 }		 		
+		
+		
+		$("#code_holder").html("<p style='font-size:60%;'><tt>from doenova import doe_ff</tt><br><tt>doe = doe_ff()</tt><br><tt>plan = doe.make_plan("+bracket_text+","+parseInt($("#rep_sel").val())+","+parseInt($("#block_nb").val())+")</tt></p>");
+
+	}	
+	
+	
+	else if(type_doe == 2){
+		
+		nbf = parseInt($("#nbf_sel").val());
+		
+		if(nbf <= 3){
+			nb_runs = 4;
+		}
+		else if(nbf <= 7){
+			nb_runs = 8;
+		}
+		else if(nbf <= 11){
+			nb_runs = 12;
+		}
+		else if(nbf <= 15){
+			nb_runs = 16;
+		}
+		else if(nbf <= 19){
+			nb_runs = 20;
+		}
+		else if(nbf <= 20){
+			nb_runs = 24;
+		}
+		
+		nb_runs = nb_runs*parseInt($("#rep_sel").val()) + parseInt($("#block_nb").val())*parseInt($("#center_points").val())
+		
+		at = code_custom_level();
+		$("#code_holder").html("<p style='font-size:60%;'><tt>from doenova import doe_pb</tt><br><tt>doe = doe_pb()</tt><br><tt>plan = doe.make_plan("+parseInt($("#nbf_sel").val())+","+parseInt($("#rep_sel").val())+","+parseInt($("#center_points").val())+","+parseInt($("#block_nb").val())+")</tt>"+at+"</p>");
+	
+	}
+	
+
+	
+	
+	
+	$("#runt").html("<h2>"+nb_runs+" runs</h2>");
+	
+	
+	if( type_doe == 0 ){
+		
+		if(max_interaction < 1){
+			$("#runi").html("<h4>Impossible to calculate an ANOVA</h4>");
+		}else{
+		    var nb_gen = parseInt($("#gen_select").val());		
+			if( nb_gen == 0 ){
+				$("#runi").html("<h4>ANOVA possible, up to "+max_interaction+"-order interactions</h4>");
+			}
+			else{
+				// Get message
+				message_value = mess_int[parseInt($("#nbf_sel").val())-3][nb_gen-1];
+				if( (parseInt($("#rep_sel").val())==1) & (max_interaction)>=1 ){
+				    $("#runi").html("<h4>ANOVA possible, up to 1-order interactions, similar to a Plackett-Burman DOE</h4>");
+				}
+				else if( (message_value == -2) && (parseInt($("#rep_sel").val())>1) ){
+					$("#runi").html("<h4>ANOVA possible, up to 1-order interactions <span style='color:red'>aliased with 2-order interactions</span></h4>");
+					max_interaction = -2;
+				}
+				else if(parseInt($("#rep_sel").val())>1) {
+					$("#runi").html("<h4>ANOVA possible, up to "+message_value+"-order interactions</h4>");
+					max_interaction = message_value;
+				}
+				else{
+				    $("#runi").html("<h4>ANOVA impossible</h4>");
+				    max_interaction = 0;
+				}
+			}
+		}
+		
+	}
+	else if(type_doe==1){
+		
+		if(max_interaction < 1){
+			$("#runi").html("<h4>Impossible to calculate an ANOVA</h4>");
+		}else{
+			$("#runi").html("<h4>ANOVA possible, up to "+max_interaction+"-order interactions</h4>");
+		}
+	}
+	else if(type_doe==2){
+		$("#runi").html("<h4>ANOVA possible, only 1-order interactions</h4>");
+	}
+	
+	
+
+	
+
+	
+	return nb_runs;
+	
+}
+	
+	
+function change_type(i){	
+		type_doe = i;	
+		if(i==0){	 
+			$("#levels_selector").hide();	 
+			$("#gens").show();
+			$("#nbs").show();	
+			$("#ges").show(); 		
+			$("#cts").show(); 		
+			$("#level_values").show();
+			$("#rep_sel").val(2);
+		}	
+		else if(i==1){	 
+			$("#cts").hide(); 
+			$("#nbs").show(); 
+			$("#ges").hide(); 
+			$("#levels_selector").show();	
+			$("#level_values").hide();
+			$("#rep_sel").val(2);
+		}	
+		else if(i==2){	 
+			$("#nbs").show();	
+			$("#levels_2_gen").show();  
+			$("#gens").hide(); 
+			$("#gen_select").val(0);	
+			$("#ges").hide(); 
+			$("#cts").show(); 
+			$("#levels_selector").hide();	
+			$("#level_values").show();
+			$("#rep_sel").val(1);
+			
+		}	
+		calculate_runs();
+	}
+		
+	function nbr_change(){	
+		var i = parseInt($("#nbf_sel").val());	
+		generate_selector(i);	
+		
+		for(j=1;j<=20;j++){	 
+			if(j<=i){	  
+				$("#sel_level_"+j).show();
+				$("#factor_value_"+j+"_row").show();
+				}	 
+			else{	  
+				$("#sel_level_"+j).hide();	 
+				$("#factor_value_"+j+"_row").hide();
+			}	
+		}
+		calculate_runs();
+	
+}		
+	
+	
+calculate_runs();
+
+
+
+function getCombinations(chars) {
+  var result = [];
+  var f = function(prefix, chars) {
+    for (var i = 0; i < chars.length; i++) {
+      result.push(prefix + chars[i]);
+      f(prefix + chars[i], chars.slice(i + 1));
+    }
+  }
+  f('', chars);
+  return result;
+}
+
+
+var nb_check_boxes = 0
+var blocks_present = false;
+var curvature_present = false;
+
+
+function next_step(){
+    
+    $(".nss").show()
+    
+    $("#nsb").hide();
+    nb_factors = parseInt($("#nbf_sel").val());
+    nb_gens = parseInt($("#gen_select").val());
+    
+    var all_factors = []
+    
+    // Create array
+    for (i = 0; i < nb_factors; i++){
+        all_factors.push(String.fromCharCode(65+i))
+    }
+    all_factors = getCombinations(all_factors);
+    
+    div_html = "<h4>Sources of variance to consider</h4><br><button onclick='cha(false)'>Deselect all</button><button onclick='cha(true)'>Select all</button><br><br>";
+    
+    if(type_doe == 0){
+        max_inter = max_interaction;
+        if(max_inter == -2){
+            max_inter = 1;
+        }
+    }
+    if(type_doe == 2){
+        max_inter = 1;
+    }
+    if(type_doe == 1){
+        max_inter = nb_factors;
+    }
+    
+    for (i = 1; i <= max_inter; i++){
+        for(j = 0; j < all_factors.length; j++ ){
+            if(i == all_factors[j].length){
+                // Generate the value
+                count = 0
+                vals = ""
+                for(k = 65; k < 65+nb_factors; k++){
+                    if(k>65){
+                        vals += ",";
+                    }
+                    if(count < i){
+                        if(all_factors[j][count] == String.fromCharCode(k)){
+                            vals += "1";
+                            count += 1;
+                        }
+                        else{
+                            vals += "0";
+                        }
+                    }
+                    else{
+                        vals += "0";
+                    }
+                }
+                div_html += '<input onchange="create_selection();" checked type="checkbox" class="ch" value="'+vals+'"> '+all_factors[j]+'<br>';
+                nb_check_boxes += 1;
+            }
+        }
+    }
+    
+    
+    if( parseInt($("#block_nb").val()) > 1 ){
+        div_html += '<input onchange="create_selection();" checked type="checkbox" id="chblock" value="1"> Blocks<br>';
+        blocks_present = true;
+    }
+    if( (parseInt($("#center_points").val())  > 0) && ( (type_doe == 0) || (type_doe == 2) ) ){
+        div_html += '<input onchange="create_selection();" checked type="checkbox" id="chcurv" value="1"> Curvature<br>';
+        curvature_present = true;
+    }
+
+    
+    console.log(div_html);
+    $("#princc").html(div_html);
+    create_selection();
+    
+}
+
+
+function cha(action){
+    $(".ch").prop('checked', action);
+    if(blocks_present){
+        $("#chblock").prop('checked', action);
+    }
+    if(curvature_present){
+        $("#chcurv").prop('checked', action);
+    }
+    create_selection();
+}
+
+
+function create_selection(){
+    seltext = "<p style='font-size:60%;'><tt>";
+    
+    var searchIDs = $('.ch:checked').map(function(){
+      return $(this).val();
+    });
+    if( (searchIDs.length>0)  ){
+        count = 0;
+        seltext += "sel = [";
+        for(i=0;i<searchIDs.length;i++){
+            if(count>0){
+                seltext += "</tt><br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+            seltext += "[" + searchIDs[i] + "],";
+            count += 1;
+        }
+        seltext += "]</tt><br><tt>";
+        seltext += "ac = doe.anova(sel,";
+    }
+    else{
+        seltext += "ac = doe.anova(";
+    }
+    
+    if(blocks_present){
+        if ($('#chblock').is(":checked"))
+        {
+          // it is checked
+        }
+        else{
+            seltext += "block=False,";
+        }
+    }
+    
+    if(curvature_present){
+        if ($('#chcurv').is(":checked"))
+        {
+          // it is checked
+        }
+        else{
+            seltext += "curv=False,";
+        }
+    }
+    
+    
+    seltext += ")</tt>";
+	if( (type_doe==0) || (type_doe==2) ){
+	seltext += "<br><tt>doe.show_model()</tt>";
+	}
+	seltext += "</p>";
+    
+    $("#resdiv").html('<p><button style="font-size:80%" class="btnc" data-clipboard-target="#code2">Copy the following script</button></p><span id="code2">' + seltext + "</span>") ;
+    new ClipboardJS('.btnc');
+    
+}
+
+	
+	</script>
+
+		
+
+			</div>
+			
+			
+			
+			<div id="resdiv" class="col-lg-3  col-md-10 col-md-offset-1" style="background-color: #FFFF9C">
+			    <span id="runt"><h2>XX runs</h2></span>
+				<span id="runi"><h4>ANOVA possible, up to 2-order interactions</h4></span>
+				<p ><button class="btnc" style="font-size:80%;" data-clipboard-target="#code_holder">Copy the following script</button></p>
+				<span  id="code_holder"><p  id="ruu" style='font-size:60%;'></p></span>
+				
+				<div id="nsb">
+    				<p><button onclick="next_step();">Next step</button></p>
+    			</div>
+			</div>
+			
+			<div style="display:none;" class="nss col-lg-9  col-md-10 col-md-offset-1">
+				<p>After the calculation of the ANOVA, you can use the <a href="anovamodel.html#modelt" target="_blank"><tt>predict_from_model</tt> function.</a></p> 
+			</div>
+			
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Université de Sherbrooke</p>
+					<p class="copyright text-muted">&copy; Francis B. Lavoie, Ryan Gosselin</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+    <script type="text/javascript">
+	
+		$(document).ready(function() {
+			var h=$(window).height();
+			$('.scrollable').height(h+'px');
+		});
+		
+		nbr_change();
+		
+		
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141025460-1"></script>
+    <script>
+	
+	  function CopyToClipboard(containerid) {
+		if (document.selection) { 
+			var range = document.body.createTextRange();
+			range.moveToElementText(document.getElementById(containerid));
+			range.select().createTextRange();
+			document.execCommand("copy"); 
+
+		} else if (window.getSelection) {
+			var range = document.createRange();
+			 range.selectNode(document.getElementById(containerid));
+			 window.getSelection().addRange(range);
+			 document.execCommand("copy");
+		}}
+	
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-141025460-1');
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script>new ClipboardJS('.btnc');</script>
+
+
+</body>
+
+</html>
